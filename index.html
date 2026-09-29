@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#eff4ff">
+  <meta name="description" content="Formulario web responsivo con validaciones HTML5 y JavaScript.">
+  <title>Registro | Formulario web</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="page-shell">
+    <section class="intro" aria-labelledby="page-title">
+      <p class="eyebrow">Taller de desarrollo web</p>
+      <h1 id="page-title">Crea tu perfil</h1>
+      <p class="intro-copy">Completa tus datos para practicar formularios HTML5, estilos adaptables y validaciones con JavaScript.</p>
+      <div class="step-note" aria-label="Tecnologías utilizadas">
+        <span>HTML5</span><span>CSS</span><span>JavaScript</span>
+      </div>
+    </section>
+
+    <section class="form-card" aria-labelledby="form-title">
+      <div class="card-heading">
+        <div>
+          <p class="eyebrow">Registro</p>
+          <h2 id="form-title">Información personal</h2>
+        </div>
+        <span class="required-note"><span aria-hidden="true">*</span> Campo obligatorio</span>
+      </div>
+
+      <form id="registro-form" novalidate>
+        <div class="form-grid">
+          <div class="field">
+            <label for="nombre">Nombre completo <span aria-hidden="true">*</span></label>
+            <input id="nombre" name="nombre" type="text" autocomplete="name" placeholder="Ej.: Alex Rivera" minlength="2" maxlength="60" required aria-describedby="nombre-error">
+            <p class="field-error" id="nombre-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="correo">Correo electrónico <span aria-hidden="true">*</span></label>
+            <input id="correo" name="correo" type="email" autocomplete="email" placeholder="nombre@ejemplo.com" required aria-describedby="correo-error">
+            <p class="field-error" id="correo-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="contrasena">Contraseña <span aria-hidden="true">*</span></label>
+            <input id="contrasena" name="contrasena" type="password" autocomplete="new-password" placeholder="Mínimo 8 caracteres" minlength="8" required aria-describedby="contrasena-hint contrasena-error">
+            <p class="field-hint" id="contrasena-hint">Usa al menos 8 caracteres.</p>
+            <p class="field-error" id="contrasena-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="edad">Edad <span aria-hidden="true">*</span></label>
+            <input id="edad" name="edad" type="number" inputmode="numeric" placeholder="Ej.: 20" min="1" max="120" step="1" required aria-describedby="edad-error">
+            <p class="field-error" id="edad-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="telefono">Teléfono <span aria-hidden="true">*</span></label>
+            <input id="telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="Ej.: 123 456 7890" pattern="\+?[0-9\s().-]{7,20}" required aria-describedby="telefono-hint telefono-error">
+            <p class="field-hint" id="telefono-hint">Escribe entre 7 y 15 dígitos; puedes incluir espacios, +, paréntesis o guiones.</p>
+            <p class="field-error" id="telefono-error"></p>
+          </div>
+
+          <div class="field">
+            <label for="perfil">Perfil <span aria-hidden="true">*</span></label>
+            <select id="perfil" name="perfil" required aria-describedby="perfil-error">
+              <option value="" selected disabled>Selecciona una opción</option>
+              <option value="estudiante">Estudiante</option>
+              <option value="docente">Docente</option>
+              <option value="otro">Otro</option>
+            </select>
+            <p class="field-error" id="perfil-error"></p>
+          </div>
+        </div>
+
+        <p class="form-feedback" id="form-feedback" role="status" aria-live="polite"></p>
+        <button class="submit-button" type="submit">Validar y guardar datos <span aria-hidden="true">→</span></button>
+        <p class="privacy-note">Este ejercicio guarda los datos en un objeto JavaScript durante la sesión actual. No los envía a un servidor.</p>
+      </form>
+    </section>
+    <footer class="page-footer">Proyecto educativo · Formulario web funcional</footer>
+  </main>
+</body>
+</html>
