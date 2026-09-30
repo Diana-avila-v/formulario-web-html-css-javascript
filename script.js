@@ -30,7 +30,10 @@ function obtenerMensajeError(campo) {
       break;
     case "telefono": {
       const cantidadDigitos = valor.replace(/\D/g, "").length;
-      if (campo.validity.patternMismatch || cantidadDigitos < 7 || cantidadDigitos > 15) {
+      if (campo.validity.patternMismatch) {
+        return "Revisa el formato. Usa dígitos, espacios, paréntesis, puntos o guiones; el signo + va al inicio.";
+      }
+      if (cantidadDigitos < 7 || cantidadDigitos > 15) {
         return "Escribe un teléfono con entre 7 y 15 dígitos.";
       }
       break;
@@ -87,6 +90,6 @@ formulario.addEventListener("submit", (evento) => {
   datosFormulario.correo = datosFormulario.correo.trim();
   datosFormulario.telefono = datosFormulario.telefono.trim();
 
-  mostrarEstado("¡Formulario válido! Los datos quedaron guardados en el diccionario datosFormulario.", "success");
+  mostrarEstado("Formulario válido. Los datos están disponibles en datosFormulario durante esta sesión.", "success");
   console.info("Diccionario de datos del formulario disponible en memoria.");
 });
